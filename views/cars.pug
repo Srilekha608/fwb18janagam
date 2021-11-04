@@ -1,0 +1,34 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to the car pug
+  div(class="container-fluid")
+        div(class="row")
+            -
+                let jewelry = [
+                    {
+                        "brand": "Ford",
+                        "model": "Fusion",
+                        "cost": "5000 USD"
+                    },
+                    {
+                        "brand": "Nissan",
+                        "model": "Altima",
+                        "cost": "6000 USD"
+                    },
+                    {
+                        "brand": "Toyota",
+                        "model": "Cambry",
+                        "cost": "6500 USD"
+                    },                   
+                ]
+            each n,index in jewelry
+                div(class="col-sm-4" onclick=`buy(${index})`) #{n.brand}
+                div(class="col-sm-4" onclick=`buy(${index})`) #{n.model}
+                div(class="col-sm-4" onclick=`buy(${index})`) #{n.cost}
+  script.                
+    function buy(product)
+    {
+        alert(`You Purchased Item ${product+1}`)
+    }
